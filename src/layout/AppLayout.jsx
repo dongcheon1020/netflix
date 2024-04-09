@@ -1,8 +1,18 @@
 import React from "react";
 import { Outlet, Link } from "react-router-dom";
 import "./AppLayout.style.css";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AppLayout = () => {
+  const [keyword, setKeyword] = useState("");
+  const navigate = useNavigate();
+  const searchByKeyword = (e) => {
+    e.preventDefault();
+    //url 바꾸기
+    navigate(`/movies?q=${keyword}`);
+    setKeyword("");
+  };
   const logoImg = () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -37,11 +47,13 @@ const AppLayout = () => {
             <Link to="/movies">Movies</Link>
           </li>
         </ul>
-        <form className="applayout-search-form">
+        <form className="applayout-search-form" onSubmit={searchByKeyword}>
           <input
             className="applayout-search-input"
             type="text"
             placeholder="Search"
+            value={keyword}
+            onChange={(e) => setKeyword(e.target.value)}
           />
           <button className="applayout-search-bt" type="submit">
             {searchImg()}
