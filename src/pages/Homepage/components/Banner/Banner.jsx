@@ -16,7 +16,7 @@ const Banner = () => {
       style={{
         backgroundImage:
           "url(" +
-          `https://image.tmdb.org/t/p/w533_and_h300_bestv2${data?.results[0].poster_path}` +
+          `https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${data?.results[0].poster_path}` +
           ")",
       }}
       className="banner"
@@ -24,6 +24,7 @@ const Banner = () => {
       <div className="text-white banner-text-area">
         <h2 className="banner-title">{data?.results[0].title}</h2>
         <p>{data?.results[0].overview}</p>
+        <button className="play-bt">재생</button>
       </div>
     </div>
   );

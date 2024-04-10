@@ -6,12 +6,15 @@ import { useNavigate } from "react-router-dom";
 
 const AppLayout = () => {
   const [keyword, setKeyword] = useState("");
+  const [toggle, setToggle] = useState(false);
+
   const navigate = useNavigate();
   const searchByKeyword = (e) => {
     e.preventDefault();
     //url 바꾸기
     navigate(`/movies?q=${keyword}`);
     setKeyword("");
+    setToggle(false);
   };
   const logoImg = () => (
     <svg
@@ -29,36 +32,74 @@ const AppLayout = () => {
   const searchImg = () => (
     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 24 24">
       <path
-        fill="#db202c"
+        fill="#fff"
         d="m19.485 20.154l-6.262-6.262q-.75.639-1.725.989q-.975.35-1.96.35q-2.402 0-4.066-1.663q-1.664-1.664-1.664-4.065T5.47 5.436q1.663-1.667 4.064-1.667q2.402 0 4.068 1.664q1.666 1.664 1.666 4.067q0 1.042-.369 2.017q-.37.975-.97 1.668l6.262 6.261zM9.538 14.23q1.99 0 3.361-1.37q1.37-1.37 1.37-3.361q0-1.99-1.37-3.36q-1.37-1.37-3.36-1.37q-1.99 0-3.361 1.37q-1.37 1.37-1.37 3.36q0 1.99 1.37 3.36q1.37 1.37 3.36 1.37"
+      />
+    </svg>
+  );
+
+  const mBar = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path
+        fill="none"
+        stroke="white"
+        stroke-linecap="round"
+        stroke-width="1.5"
+        d="M20 7H4m16 5H4m16 5H4"
       />
     </svg>
   );
 
   return (
     <div>
-      <nav className="applayout-navbar">
-        <ul className="applayout-list">
-          <li className="logo">{logoImg()}</li>
-          <li className="applayout-list-item">
-            <Link to="/">Home</Link>
-          </li>
-          <li className="applayout-list-item">
-            <Link to="/movies">Movies</Link>
-          </li>
-        </ul>
-        <form className="applayout-search-form" onSubmit={searchByKeyword}>
-          <input
-            className="applayout-search-input"
-            type="text"
-            placeholder="Search"
-            value={keyword}
-            onChange={(e) => setKeyword(e.target.value)}
-          />
-          <button className="applayout-search-bt" type="submit">
-            {searchImg()}
-          </button>
-        </form>
+      <nav
+        className="applayout-navbar"
+        style={{
+          height: toggle === true ? "100vh" : 50,
+        }}
+      >
+        <button
+          style={{ background: "none", border: "none" }}
+          onClick={() => {
+            setToggle(!toggle);
+          }}
+          className="hamburherbar"
+        >
+          {mBar()}
+        </button>
+        <div className="navbar">
+          <ul className="applayout-list">
+            <li className="applayout-list-item">
+              <Link to="/">Home</Link>
+            </li>
+            <li className="applayout-list-item">
+              <Link to="/movies">Movies</Link>
+            </li>
+          </ul>
+          <form className="applayout-search-form" onSubmit={searchByKeyword}>
+            <button className="applayout-search-bt" type="submit">
+              {searchImg()}
+            </button>
+
+            <input
+              className="applayout-search-input"
+              type="search"
+              name="q"
+              placeholder="Search"
+              value={keyword}
+              onChange={(e) => setKeyword(e.target.value)}
+            />
+          </form>
+        </div>
+
+        <div
+          style={{
+            display: toggle === true ? "none" : "grid",
+          }}
+          className="logo"
+        >
+          {logoImg()}
+        </div>
       </nav>
       <Outlet />
     </div>

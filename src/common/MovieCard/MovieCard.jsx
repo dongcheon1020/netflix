@@ -15,28 +15,28 @@ const MovieCard = ({ movie }) => {
     return genreNameList;
   };
   return (
-    <div
-      style={{
-        backgroundImage:
-          "url(" +
-          `https://image.tmdb.org/t/p/w220_and_h330_face${movie.poster_path}` +
-          ")",
-      }}
-      className="movie-card"
-    >
-      <div className="overlay">
-        <h1>{movie.title}</h1>
-        <ul className="genre">
+    <div className="movie-card">
+      <img
+        style={{
+          width: "100%",
+          borderRadius: "16px",
+        }}
+        src={`https://media.themoviedb.org/t/p/w500_and_h282_face/${movie.poster_path}`}
+        alt=""
+      />
+      <h4 className="title">{movie.title}</h4>
+
+      {/* <ul className="genre">
           {showGenre(movie.genre_ids).map((id, index) => (
             <li className="genre-item" key={index}>
               {id}
             </li>
           ))}
-        </ul>
-        <div>{movie.vote_averge}</div>
-        <div>{movie.popularity}</div>
-        <div>{movie.adult ? "over18" : "under18"}</div>
-      </div>
+        </ul> */}
+      <ul className="popularcontent">
+        <li>평점: {movie.vote_average}</li>
+        <li>인기: {movie.popularity}</li>
+      </ul>
     </div>
   );
 };

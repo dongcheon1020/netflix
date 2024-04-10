@@ -1,59 +1,104 @@
 .banner {
-  height: 56vh;
-  background-position: left;
+  height: calc(100vh - 100px);
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
+  border-radius: 0 0 20px 20px;
   position: relative;
 }
 .banner::before {
   content: "";
-  background: linear-gradient(to top, #000, transparent);
   position: absolute;
-  left: 0;
   top: 0;
-  height: 56vh;
+  left: 0;
   width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, #0000005d, transparent 80%);
+  z-index: 1;
 }
 .text-white {
   color: #fff;
 }
 .banner-text-area {
-  width: 36%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 400px;
+  height: fit-content;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  height: 100%;
-  padding: 2rem;
-  position: relative;
-  box-sizing: border-box;
-  z-index: 1;
+  padding: 40px;
+  z-index: 2;
 }
 
 .banner-text-area h2 {
-  font-size: 50px;
-  margin-bottom: 20px;
+  font-size: 30px;
+  font-weight: bold;
 }
 .banner-text-area p {
-  font-size: 20px;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.85);
+}
+.play-bt {
+  width: 100%;
+  background-color: #fff;
+  border: none;
+  color: #000;
+  border-radius: 8px;
+  padding: 8px 0;
+  font-weight: bold;
+  font-size: 16px;
 }
 
 @media screen and (max-width: 500px) {
   .banner-text-area {
-    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 400px;
+    height: fit-content;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    height: 100%;
-    padding: 3rem 1.3rem;
-    position: relative;
-    z-index: 1;
+    padding: 20px;
+    z-index: 2;
+    text-align: center;
   }
-
   .banner-text-area h2 {
     font-size: 30px;
     margin-bottom: 10px;
   }
   .banner-text-area p {
-    font-size: 18px;
+    font-size: 14px;
+  }
+  .play-bt {
+    width: 200px;
+    background-color: #fff;
+    border: none;
+    color: #000;
+    border-radius: 8px;
+    padding: 8px 0;
+    font-weight: bold;
+    font-size: 16px;
+    margin: auto;
+  }
+  .banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #000000c5 0%, transparent 50%);
+    z-index: 1;
+  }
+  .banner {
+    height: calc(100vh - 100px);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    border-radius: 0;
+    position: relative;
   }
 }

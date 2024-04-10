@@ -1,12 +1,21 @@
 .carousel-container {
-  overflow: hidden;
-  height: 440px;
+  height: fit-content;
+  margin-bottom: 20px;
 }
-
+.slider-container {
+  padding: 0 50px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #6a6a6a4e;
+  margin-top: 10px;
+}
+.slider-title {
+  font-size: 22px;
+}
 @media screen and (max-width: 480px) {
-  .carousel-container {
-    height: 330px;
-    display: flex;
-    justify-content: space-between;
+  .slider-container {
+    padding: 0 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #6a6a6a4e;
+    margin-top: 10px;
   }
 }
