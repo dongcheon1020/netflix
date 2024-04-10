@@ -32,6 +32,7 @@ const MoviePage = () => {
       <div
         style={{
           display: "flex",
+          flexDirection: "column",
         }}
       >
         <div
@@ -59,13 +60,15 @@ const MoviePage = () => {
               </div>
             ))}
           </div>
+        </div>
+        <div className="pagenention">
           <ReactPaginate
-            nextLabel="next >"
+            nextLabel=" >"
             onPageChange={handlePageClick}
             pageRangeDisplayed={3}
             marginPagesDisplayed={2}
             pageCount={data?.total_pages}
-            previousLabel="< previous"
+            previousLabel="< "
             pageClassName="page-item"
             pageLinkClassName="page-link"
             previousClassName="page-item"
