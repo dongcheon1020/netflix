@@ -33,3 +33,42 @@
   position: absolute;
   inset: auto 20px 17px auto;
 }
+.review-pop {
+  background-color: #2d2d2d;
+  width: 700px;
+  height: 800px;
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  z-index: 999;
+  border-radius: 20px;
+  padding: 60px;
+  box-sizing: border-box;
+  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.2);
+}
+.author-p {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.review-p-textbox {
+  overflow: auto;
+  height: 640px;
+}
+.review-p {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 16px;
+}
+.review-add-p {
+  position: absolute;
+  background: none;
+  border: none;
+  right: 20px;
+  top: 20px;
+  width: 35px;
+  font-weight: bold;
+}
+.review-add-p:hover {
+  opacity: 0.9;
+}

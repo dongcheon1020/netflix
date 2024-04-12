@@ -13,8 +13,18 @@ import Review from "../../common/Review/Review";
 const MovieDetailPage = () => {
   const { id } = useParams();
   const { data, isLoading, isError, error } = useMovieDetailQuery({ id });
-  const { data: credit } = useDetailCreditsQuery({ id });
-  const { data: reviewData } = useReviewQuery({ id });
+  const {
+    data: credit,
+    isLoading: creditIS,
+    isError: creditIE,
+    error: creditEr,
+  } = useDetailCreditsQuery({ id });
+  const {
+    data: reviewData,
+    isLoading: reviewIS,
+    isError: reviewIE,
+    error: reviewEr,
+  } = useReviewQuery({ id });
 
   const cast = credit?.cast;
   const topCredits = () => {
@@ -39,11 +49,13 @@ const MovieDetailPage = () => {
     return `${hours}시간 ${remainingMinutes}분`;
   }
 
-  if (isLoading) {
+  if (isLoading || creditIS || reviewIS) {
     return <div>Loading</div>;
   }
-  if (isError) {
-    return <div>{error.message}</div>;
+  if (isError || creditIE || reviewIE) {
+    return (
+      <div>{error?.message || creditEr?.message || reviewEr?.message}</div>
+    );
   }
   return (
     <div className="page">
@@ -97,7 +109,7 @@ const MovieDetailPage = () => {
           customTransition="all 1s ease"
         >
           {cast?.map((item, index) => (
-            <div>
+            <div key={index}>
               <Profile
                 name={item.name}
                 character={item.character}
@@ -113,7 +125,7 @@ const MovieDetailPage = () => {
           backgroundColor: "rgba(0, 0, 0, 0.3)",
         }}
       >
-        <Review data={reviewData} />
+        {reviewData ? <Review data={reviewData} /> : <div>리뷰없음</div>}
       </div>
     </div>
   );
