@@ -68,6 +68,8 @@
   border: none;
   height: 48px;
   border-radius: 6px;
+  font-weight: bold;
+  font-size: 16px;
 }
 .detail-overview {
   display: flex;
@@ -78,7 +80,7 @@
   box-sizing: border-box;
 }
 .detiale-discription {
-  font-size: 15px;
+  font-size: 16px;
 }
 .detial-add {
 }
@@ -96,7 +98,7 @@
   color: #fff !important;
 }
 .textsubbox {
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .credits {
