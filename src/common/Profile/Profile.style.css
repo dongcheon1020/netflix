@@ -1,0 +1,20 @@
+.profile {
+  width: 126px;
+  height: 126px;
+  object-fit: cover;
+  border-radius: 100%;
+}
+.frofile-card {
+  display: grid;
+  text-align: center;
+  place-items: center;
+}
+.frofile-card span {
+  font-size: 13px;
+  margin-top: 6px;
+  margin-bottom: 2px;
+}
+.frofile-card p {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
+}

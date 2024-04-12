@@ -1,0 +1,35 @@
+.slider-item {
+  margin-right: 18px;
+  padding: 22px;
+  box-sizing: border-box;
+  height: 182px;
+  width: 369px;
+  background-color: #2d2d2d;
+  border-radius: 12px;
+}
+.carousel-slider {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 200px;
+}
+.review {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 15px;
+}
+.author {
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 3px;
+}
+.review-add {
+  background: none;
+  border: none;
+  color: #0a84ff;
+  font-size: 15px;
+  position: absolute;
+  inset: auto 20px 17px auto;
+}

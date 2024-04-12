@@ -1,9 +1,15 @@
 import React from "react";
 import "./MovieCard.stayle.css";
 import { useMovieGenreQuery } from "../../hooks/useMoiveDenre";
+import { useNavigate } from "react-router-dom";
 
 const MovieCard = ({ movie }) => {
+  const navigate = useNavigate();
   const { data: genreData } = useMovieGenreQuery();
+
+  const goDetail = () => {
+    navigate(`/movies/${movie.id}`);
+  };
 
   const showGenre = (genreIdList) => {
     if (!genreData) return [];
@@ -15,7 +21,7 @@ const MovieCard = ({ movie }) => {
     return genreNameList;
   };
   return (
-    <div className="movie-card">
+    <div onClick={() => goDetail()} className="movie-card">
       <img
         style={{
           width: "100%",
