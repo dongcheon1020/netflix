@@ -13,7 +13,11 @@ const PopularMovieSlide = () => {
   }
 
   return (
-    <div>
+    <div
+      style={{
+        marginTop: "80px",
+      }}
+    >
       <MovieSlider
         title="Popular Movies"
         movies={data.results}

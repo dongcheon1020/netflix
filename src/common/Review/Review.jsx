@@ -19,7 +19,12 @@ const Review = ({ data }) => {
   const reviews = data?.results;
 
   return (
-    <div className="slider-container">
+    <div
+      style={{
+        border: "none",
+      }}
+      className="slider-container"
+    >
       {reviewOn === true ? (
         <div className="review-pop">
           {selectedReview ? (
